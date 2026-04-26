@@ -11,9 +11,9 @@ export default function ContactList() {
         },
         {
           uid: 2,
-          name: 'Anurag Tiwari',
+          name: 'Satyam Haldkar',
           status: 'I ❤️ To Code and Teach!',
-          imageUrl: 'https://avatars.githubusercontent.com/u/94738352?v=4',
+          imageUrl: 'https://avatars.githubusercontent.com/u/203333916?v=4',
         },
         {
           uid: 3,
@@ -30,9 +30,9 @@ export default function ContactList() {
       ];
   return (
     <View>
-      <Text style={styles.headingText}>ContactList</Text>
+      <Text style={styles.headingText}>Contact List</Text>
       <ScrollView style={styles.container} 
-              scrollEnabled = {true}>
+              scrollEnabled = {false}>
                {contacts.map(({uid , name , status , imageUrl})=>(
                 <View key={uid} style={styles.userCard}>
                   <Image
@@ -41,6 +41,10 @@ export default function ContactList() {
                   }}
                   style={styles.userImage}
                   />
+                 <View>
+                   <Text style={styles.userName}>{name}</Text>
+                  <Text style={styles.userStatus}>{status}</Text>
+                 </View>
                 </View>
                ))}
       </ScrollView>
@@ -55,9 +59,33 @@ const styles = StyleSheet.create({
     fontSize : 24,
     paddingLeft : 10
   },
-  container : {},
-  userCard : {},
-  userImage : {}
+  container : {
+    paddingHorizontal : 12,
+    marginTop : 10
+  },
+  userCard : {
+    flex :1,
+    flexDirection : "row",
+    alignItems : "center",
+    backgroundColor : "#2c3e50",
+    marginBottom : 10,
+    borderRadius : 10,
+   
+  },
+  userImage : {
+    height : 70,
+    width : 70,
+    borderRadius : 35,
+    margin:10
+    
+  },
+  userName : {
+   color : "white",
+    fontSize : 20
+  },
+  userStatus : {
+     color : "darkgrey"
+  },
 
 
 
