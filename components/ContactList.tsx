@@ -30,10 +30,35 @@ export default function ContactList() {
       ];
   return (
     <View>
-      <Text>ContactList</Text>
+      <Text style={styles.headingText}>ContactList</Text>
+      <ScrollView style={styles.container} 
+              scrollEnabled = {true}>
+               {contacts.map(({uid , name , status , imageUrl})=>(
+                <View key={uid} style={styles.userCard}>
+                  <Image
+                  source={{
+                    uri : imageUrl
+                  }}
+                  style={styles.userImage}
+                  />
+                </View>
+               ))}
+      </ScrollView>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  headingText : {
+    color : "white",
+    fontWeight : "bold",
+    fontSize : 24,
+    paddingLeft : 10
+  },
+  container : {},
+  userCard : {},
+  userImage : {}
+
+
+
 })
